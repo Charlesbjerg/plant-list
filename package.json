@@ -1,0 +1,23 @@
+{
+  "name": "plant-list",
+  "version": "1.0.0",
+  "description": "Plant List - Service used for tracking plants within garden centres with dire stock control",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Charlesbjerg/plant-list.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Charlesbjerg/plant-list/issues"
+  },
+  "homepage": "https://github.com/Charlesbjerg/plant-list#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0"
+  }
+}
