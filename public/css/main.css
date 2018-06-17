@@ -72,6 +72,9 @@ a {
 .scrollable {
     overflow-y: scroll;
 }
+.no-scroll { 
+    overflow-y: hidden!important;
+}
 /* Element Styles */
 .main-nav  {
     background-color: #fff;
@@ -135,12 +138,19 @@ a.active {
     height: 90%;
     overflow-y: scroll;
 }
+.search-results .panel h1 {
+    color: #fff;
+    margin: 0.5em 0;
+}
 .item {
     background-color: var(--bg-lighter);
     border-radius: 3px;
     color: #fff;
     padding: 0.5em;
     margin: 0.5em 0;
+}
+.item h3 {
+    text-transform: capitalize;
 }
 .big-image {
     width: 100%;
@@ -157,8 +167,9 @@ a.active {
 .content-container .panel {
     transform: translateY(-50px);
 }
+
 .content-container .panel h1 {
-    margin: 0;
+    text-transform: capitalize;
 }
 .content-container .panel h2, h3 {
     margin: 0.5em 0;

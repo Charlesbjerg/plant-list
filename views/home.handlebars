@@ -2,17 +2,17 @@
     <div class="search-options">
         <div class="panel choice">
             <h3>Search for a plant</h3>
-            <form action="search.html" method="GET">
-                <input type="text" class="search-bar" placeholder="Geranium" />
+            <form action="/search" method="POST">
+                <input type="text" name="search" class="search-bar" placeholder="Geranium" />
                 <button type="submit" class="btn-wide">
                     <i class="fas fa-search"></i> Search</button>
             </form>
         </div>
         <div class="panel choice">
             <h3>View all plants</h3>
-            <a class="btn-wide" href="#">
+            <a class="btn-wide" href="/all">
                 <i class="fas fa-th"></i> View</a>
-            <p>Apparently I tried to search for: {{data}}</p>
+            <p>Apparently I tried to search for: {{data.name}}</p>
         </div>
     </div>  
 </div>

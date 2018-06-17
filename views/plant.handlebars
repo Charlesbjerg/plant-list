@@ -1,0 +1,33 @@
+<div class="container scrollable no-padding">
+    <div class="big-image">
+
+    </div>
+    <div class="content-container">
+        <div class="panel">
+            <h1>{{plant.name}}</h1>
+            <h2>{{plant.variant}}</h2>
+            <h3>{{plant.price}} or {{plant.deal}}</h3>
+            <table class="item-info">
+                <tr>
+                    <td>Plant Type</td>
+                    <td class="{{plant.form}}">{{plant.type}}</td>
+                </tr>
+                <tr>
+                    <td>Form</td>
+                    <td>{{plant.form}}</td>
+                </tr>
+                <tr>
+                    <td>Stock level</td>
+                    <td class="red">
+                        <i class="fas fa-times-circle fa-fw"></i> Out of Stock</td>
+                </tr>
+                <tr>
+                    <td>Location</td>
+                    <td>{{plant.location}}</td>
+                </tr>
+            </table>
+            <a href="/plant/{{plant.name}}/edit" class="btn-wide">
+                <i class="fas fa-edit"></i> Edit</a>
+        </div>
+    </div>
+</div>

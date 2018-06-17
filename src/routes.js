@@ -1,63 +1,59 @@
-var express = require('express');
+var express = require("express");
 var r = express.Router();
-var db = require('./db');
+var db = require("./db");
 
-// Index Route  
-r.get('/', function(req, res) {
-  db.findAll();
-  res.render('home');
+// Index Route
+r.get("/", function(req, res) {
+    res.render("home");
 });
 
 // Search routes
-r.get('/search', function(req, res) {
-  let result = db.findAll();
-  console.log("Result: " + result);
-  res.render('home');
+r.get("/search", function(req, res) {
+    res.render("search", {
+      results: false
+  });
 });
-r.get('/search/:plant', function (req, res) {
+r.post("/search", function(req, res) {
   // Get params
-  let plant = req.params.plant;
-  let result = db.findMany({ "name": plant });
-  console.log("Route result: " + result);
-  // Send params in query to db
-  // put returned data into object
-  // or send error
-  // send data to template
-  res.render('home', {
-    data: result
+  let plant = req.body.search;
+  console.log(plant);
+  db.findMany(plant.toLowerCase(), function(data) {
+    console.log(data);
+    res.render("search", { result: data });
   });
 });
 
 // View all route
-r.get('/all', function(req, res) {
-  // Search db for all plants
-  // Send data to template
-  res.render('all');
- });
+r.get("/all", function(req, res) {
+  db.findAll(function(data) {
+    console.log(data);
+    res.render("all", {
+      result: data
+    });
+  });
+});
 
 // Plant routes
-r.get('/plant/:plant', function(req, res) {
+r.get("/plant/create", function(req, res) {
+    res.send('plantForm');
+});
+
+r.get("/plant/:plant", function(req, res) {
   // Get params
-  // Send query to db 
-  // Return data to template
-  res.render('plant');
+  let plant = req.params.plant;
+  db.findOne(plant.toLowerCase(), function(data) {
+    console.log(data);
+    res.render("plant", { plant: data});
+  });
 });
 
-// Edit plant routes
-r.get('/plant/:plant', function(req, res) {
-
+// // Edit plant routes
+r.get("/plant/:plant/edit", function(req, res) {
+  res.render('home');
 });
-r.post('/plant/:plant', function(req, res) {
-
-});
+r.post("/plant/:plant", function(req, res) {});
 
 // Create plant routes
-r.get('/plant/create', function(req, res) {
-
-});
-r.post('/plant/create', function (req, res) {
-
-});
-
+// r.get("/plant/create", function(req, res) {});
 
 module.exports = r;

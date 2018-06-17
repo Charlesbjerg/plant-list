@@ -1,0 +1,20 @@
+<!-- Search panel -->
+<div class="container center-content">
+    {{#if results}}
+    <div class="search-results">
+    {{else}}
+    <div class="search-results no-scroll">
+    {{/if}}
+    <div class="panel">
+        <input type="search" class="search-bar" value="Geranium" />
+        {{#if result}}
+            {{#each result}}
+                <div class="item">
+                    <h3>{{name}}</h3>
+                    <p>{{form}} - {{price}}</p>
+                    <a href="/plant/{{name}}" class="btn-wide">View</a>
+                </div>
+            {{/each}}
+        {{/if}}
+    </div>
+</div>

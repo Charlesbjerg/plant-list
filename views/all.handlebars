@@ -1,0 +1,14 @@
+<div class="container center-content">
+    <div class="search-results">
+        <div class="panel">
+        <h1>View all plants</h1>
+        {{#each result}}
+            <div class="item">
+                <h3>{{name}}</h3>
+                <p>{{form}} - £{{price}}</p>
+                <a href="/plant/{{name}}" class="btn-wide">View</a>
+            </div>
+        {{/each}} 
+        </div>
+    </div>
+</div>
