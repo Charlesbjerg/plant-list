@@ -1,7 +1,7 @@
 // Require any dependencies
 var express = require('express');
 var handlebars = require('express-handlebars');
-var routes = require('./config/routes.js');
+var routes = require('./src/routes.js');
 
 // init app
 var app = express();
@@ -9,7 +9,7 @@ var app = express();
 // set templating engine
 app.engine('handlebars', handlebars({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
-app.enable('view cache');
+// app.enable('view cache');
 
 // Serve static files and setup routes
 app.use(express.static('public'));
