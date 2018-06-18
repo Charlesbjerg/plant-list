@@ -7,6 +7,9 @@ var bodyparser = require('body-parser');
 // init app
 var app = express();
 
+// Set port
+let port = process.env.PORT || 3000;
+
 // setup middleware
 app.engine('handlebars', handlebars({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
@@ -18,6 +21,6 @@ app.use(express.static('public'));
 app.use(routes);
 
 // Start app
-app.listen(3000, function() {
+app.listen(port, function() {
     console.log('Server started on port 3000');
 });
