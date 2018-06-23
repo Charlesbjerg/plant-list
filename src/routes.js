@@ -43,7 +43,7 @@ r.get("/plant/:plant", function(req, res) {
   let plant = req.params.plant;
   db.findOne(plant.toLowerCase(), function(data) {
     console.log(data);
-    res.render("plant", { plant: data});
+    res.render("plant", { plant: data });
   });
 });
 
