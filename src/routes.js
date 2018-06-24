@@ -4,13 +4,14 @@ var db = require("./db");
 
 // Index Route
 r.get("/", function(req, res) {
-    res.render("home");
+    res.render("home", { page: 'home' });
 });
 
 // Search routes
 r.get("/search", function(req, res) {
     res.render("search", {
-      results: false
+      results: false,
+      page: 'search'
   });
 });
 r.post("/search", function(req, res) {
@@ -19,7 +20,10 @@ r.post("/search", function(req, res) {
   console.log(plant);
   db.findMany(plant.toLowerCase(), function(data) {
     console.log(data);
-    res.render("search", { result: data });
+    res.render("search", { 
+      result: data,
+      page: 'search'
+    });
   });
 });
 
@@ -28,7 +32,8 @@ r.get("/all", function(req, res) {
   db.findAll(function(data) {
     console.log(data);
     res.render("all", {
-      result: data
+      result: data,
+      page: 'all'
     });
   });
 });
@@ -43,7 +48,9 @@ r.get("/plant/:plant", function(req, res) {
   let plant = req.params.plant;
   db.findOne(plant.toLowerCase(), function(data) {
     console.log(data);
-    res.render("plant", { plant: data });
+    res.render("plant", {
+       plant: data
+      });
   });
 });
 

@@ -32,7 +32,21 @@ var hbsConfig = handlebars.create({
             // Return html 
             // return handlebars.escapeExpression(html);
             return html;
-        }  
+        },
+        'nav': function(page) {
+           // init html string
+            let html = "";
+            if (page == 'search') {
+                html = '<li><a href="/search" class="active"><i class="fas fa-search fa-2x fa-fw"></i> <span>Search</span></a></li><li><a href="/"><i class="fab fa-pagelines fa-2x fa-fw"></i> <span>Home</span></a></li><li><a href="/all"><i class="fas fa-th fa-2x fa-fw"></i> <span>View All</span></a></li>';
+            } else if (page == 'home') {
+                html = '<li><a href="/search"><i class="fas fa-search fa-2x fa-fw"></i> <span>Search</span></a></li><li><a href="/" class="active"><i class="fab fa-pagelines fa-2x fa-fw"></i> <span>Home</span></a></li><li><a href="/all"><i class="fas fa-th fa-2x fa-fw"></i> <span>View All</span></a></li>';
+            } else if (page == 'all') {
+                html = '<li><a href="/search"><i class="fas fa-search fa-2x fa-fw"></i> <span>Search</span></a></li><li><a href="/"><i class="fab fa-pagelines fa-2x fa-fw"></i> <span>Home</span></a></li><li><a href="/all" class="active"><i class="fas fa-th fa-2x fa-fw"></i> <span>View All</span></a></li>';
+            } else if (page == null) {
+                html = '<li><a href="/search"><i class="fas fa-search fa-2x fa-fw"></i> <span>Search</span></a></li><li><a href="/"><i class="fab fa-pagelines fa-2x fa-fw"></i> <span>Home</span></a></li><li><a href="/all"><i class="fas fa-th fa-2x fa-fw"></i> <span>View All</span></a></li>';
+            }
+            return html;
+        }
     }
 });
 
