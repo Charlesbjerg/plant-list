@@ -6,7 +6,10 @@
     <div class="search-results no-scroll">
     {{/if}}
     <div class="panel">
-        <input type="search" class="search-bar" value="Geranium" />
+        <form action="/search" method="POST">
+            <input type="search" class="search-bar" name="search" />
+            <button type="submit" class="btn-search"><i class="fas fa-search fa-2x fa-fw    "></i></button>
+        </form>
         {{#if result}}
             {{#each result}}
                 <div class="item">

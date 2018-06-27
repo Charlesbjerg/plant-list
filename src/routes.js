@@ -40,7 +40,7 @@ r.get("/all", function(req, res) {
 
 // Plant routes
 r.get("/plant/create", function(req, res) {
-    res.send('plantForm');
+    res.render('create');
 });
 
 r.get("/plant/:plant", function(req, res) {
@@ -56,11 +56,10 @@ r.get("/plant/:plant", function(req, res) {
 
 // // Edit plant routes
 r.get("/plant/:plant/edit", function(req, res) {
-  res.render('home');
+  res.render('edit');
 });
 r.post("/plant/:plant", function(req, res) {});
 
 // Create plant routes
-// r.get("/plant/create", function(req, res) {});
 
 module.exports = r;
