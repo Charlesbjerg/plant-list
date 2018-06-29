@@ -48,5 +48,15 @@ module.exports = {
       }
     );
   },
-  updateOne: function() {}
+  updateOne: function() {},
+  searchPlant: function(name, callback) {
+    MongoClient.connect(url, function(err, db) {
+      if (err) throw err;
+      var dbo = db.db('plant-list');
+      dbo.collection(collection).find({ $text:{ $search:name }}).toArray(function(err, result) {
+        console.log(result);
+        callback(result);
+      });
+    });
+  }
 };
