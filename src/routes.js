@@ -73,17 +73,26 @@ r.get("/plant/:plant", function(req, res) {
 r.get("/plant/:plant/edit", function(req, res) {
   res.render('edit');
 });
-r.post("/plant/:plant", function(req, res) {});
-
-// Debug routes
-r.get('/debug/:plant', function(req, res) {
-  let plant = req.params.plant;
-  db.search(plant, function(data) {
-    res.render('debug', {
-      data: data,
-      page: 'home'
-    })
-  });
+r.post("/plant/:plant/edit", function(req, res) {
+  // Get and prep plant data
+  let data = req.body;
+  let documentName = req.params.plant;
+  let plant = {
+    name: data.name.toLowerCase(),
+    variant: data.variant,
+    price: data.price,
+    deal: data.deal,
+    form: data.form,
+    stockLevel: data.level,
+    location: data.location
+  };
+  // Send to db
+   db.updateOne(documentName, plant, function() {
+    if (err) throw err;
+    // Redirect to update plant
+    let url = '/plant/' + plant.name;
+      res.redirect(url);
+   });
 });
 
 // Export routes to express app

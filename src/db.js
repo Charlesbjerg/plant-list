@@ -25,30 +25,30 @@ module.exports = {
       }
     );
   },
-  findMany: function(plant, callback) {
+  createOne: function(plant, callback) {
     MongoClient.connect(url, function(err, db) {
         if (err) throw err;
         var dbo = db.db("plant-list");
-        dbo.collection(collection).find({name: plant}).toArray(function(err, result) {
-            if (err) throw err;
-            console.log(plant)
-            callback(result);
-            db.close();
-          });
-      });
-  },
-  createOne: function(plantObj, callback) {
-    MongoClient.connect(url, function(err, db) {
-        if (err) throw err;
-        var dbo = db.db("plant-list");
-        dbo.collection("Plants").insertOne(plantObj, function(err, res) {
+        dbo.collection("Plants").insertOne(plant, function(err, res) {
           if (err) throw err;
           callback();
         });
       }
     );
   },
-  updateOne: function() {},
+  updateOne: function(name, plant, callback) {
+    MongoClient.connect(url, function(err, db) {
+      if (err) throw err;
+      var dbo = db.db('plant-list');
+      var query = { name: name};
+      var newValues = { $set: {plant}};
+      dbo.collection(collection).updateOne(query, newValues, function(err, res) {
+        if (err) throw err;
+        db.close();
+        callback(plant);
+      })
+    });
+  },
   searchPlant: function(name, callback) {
     MongoClient.connect(url, function(err, db) {
       if (err) throw err;
