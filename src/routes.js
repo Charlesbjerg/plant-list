@@ -54,7 +54,6 @@ r.post("/plant/create", function(req, res) {
   };
   // send object to database
   db.createOne(plant, function(){
-    if (err) throw err;
     // redirect to new plant
     let url = '/plant/' + plant.name;
     console.log(plant);
@@ -70,29 +69,41 @@ r.get("/plant/:plant", function(req, res) {
       });
   });
 });
-r.get("/plant/:plant/edit", function(req, res) {
-  res.render('edit');
+
+// Stock Location Update
+r.get("/plant/:plant/location-update", function(req, res) {
+  // find document
+  db.findOne(req.params.plant, function(data) {
+    res.render('locationUpdate', {
+      location: data.location,
+      name: data.name
+    });
+  });
 });
-r.post("/plant/:plant/edit", function(req, res) {
-  // Get and prep plant data
-  let data = req.body;
-  let documentName = req.params.plant;
-  let plant = {
-    name: data.name.toLowerCase(),
-    variant: data.variant,
-    price: data.price,
-    deal: data.deal,
-    form: data.form,
-    stockLevel: data.level,
-    location: data.location
-  };
+r.post("/plant/:plant/location-update", function(req, res) {
   // Send to db
-   db.updateOne(documentName, plant, function() {
-    if (err) throw err;
+  db.updateLocation(req.params.plant, req.body.stockLocation, function() {
     // Redirect to update plant
-    let url = '/plant/' + plant.name;
+    let url = '/plant/' + req.params.plant;
       res.redirect(url);
    });
+});
+
+// Stock Level Update
+r.get("/plant/:plant/stock-update", function(req, res) {
+  // find document for stock level
+  db.findOne(req.params.plant, function(data) {
+    res.render('stockUpdate', {
+      stockLevel: data.stockLevel,
+      name: data.name
+    });
+  });
+});
+r.post("/plant/:plant/stock-update", function(req, res) {
+  db.updateStock(req.params.plant, req.body.stockLevel, function() {
+    let url = '/plant/' + req.params.plant;
+    res.redirect(url);
+  });
 });
 
 // Export routes to express app

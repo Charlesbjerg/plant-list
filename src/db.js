@@ -36,17 +36,31 @@ module.exports = {
       }
     );
   },
-  updateOne: function(name, plant, callback) {
+  updateLocation: function(name, data, callback) {
     MongoClient.connect(url, function(err, db) {
       if (err) throw err;
       var dbo = db.db('plant-list');
-      var query = { name: name};
-      var newValues = { $set: {plant}};
+      let query = { name: name };
+      let newValues = { $set: { location: data }};
       dbo.collection(collection).updateOne(query, newValues, function(err, res) {
         if (err) throw err;
         db.close();
-        callback(plant);
+        callback();
       })
+    });
+  },
+  updateStock: function(name, data, callback) {
+    MongoClient.connect(url, function(err, db) {
+      if (err) throw err;
+      var dbo = db.db('plant-list');
+      console.log(name + data);
+      let query = { name: name };
+      let newValues = { $set: { stockLevel: data }};
+      dbo.collection(collection).updateOne(query, newValues, function(err, res) {
+        if (err) throw err;
+        db.close();
+        callback();
+      }); 
     });
   },
   searchPlant: function(name, callback) {

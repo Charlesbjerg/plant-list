@@ -24,10 +24,10 @@ var hbsConfig = handlebars.create({
                 html = "<td class='green'><i class='fas fa-check-circle fa-fw'></i> High Stock</td>";
             } else if (stockLevel == "2") {
                 // Medium stock level
-                html = "<td class='amber'><i class='fas fa-info-circle fa-fw'></i> Medium Stock</td>";
+                html = "<td class='amber'><i class='fas fa-info-circle fa-fw'></i> Low Stock</td>";
             } else {
                 // Low stock level
-                html = "<td class='red'><i class='fas fa-times-circle fa-fw'></i> Low Stock</td>";
+                html = "<td class='red'><i class='fas fa-times-circle fa-fw'></i> No Stock</td>";
             }
             // Return html 
             // return handlebars.escapeExpression(html);

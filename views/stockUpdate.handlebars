@@ -1,0 +1,15 @@
+<div class="container center-content">
+    <div class="panel">
+        <form action="/plant/{{name}}/stock-update" method="POST">
+            <div class="form-item">
+                <label>Stock Level</label>
+                <select name="stockLevel">
+                    <option value="1">Out of Stock</option>
+                    <option value="2">Low</option>
+                    <option value="3">High</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-wide"><i class="fas fa-edit"></i> Update</button>
+        </form>
+    </div>
+</div>

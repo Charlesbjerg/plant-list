@@ -1,7 +1,39 @@
-<div class="container center-content">
+<div class="container center-content scrollable">
     <div class="panel">
         <form class="" action="/plant/create" method="POST">
-            {{> form}}
+            <div class="form-item">
+                <label>Plant Name</label>
+                <input type="text" name="name" />
+            </div>
+            <div class="form-item">
+                <label>Plant Variant</label>
+                <input type="text" name="variant" />
+            </div>
+            <div class="form-item">
+                <label>Price</label>
+                <input type="text" name="price" />
+            </div>
+            <div class="form-item">
+                <label>Plant Deal</label>
+                <input type="text" name="deal" />
+            </div>
+            <div class="form-item">
+                <label>Plant form</label>
+                <input type="text" name="form" />
+            </div>
+            <div class="form-item">
+                <label>Stock Level</label>
+                <select name="stockLevel">
+                    <option value="1">Out of stock</option>
+                    <option value="2">Low stock</option>
+                    <option value="3">High stock</option>
+                </select>
+            </div>
+            <div class="form-item">
+                <label>Stock Location</label>
+                <input type="text" name="location" />
+            </div>
+            <button type="submit" class="btn-wide">Submit</button>
         </form>
     </div>
 </div>

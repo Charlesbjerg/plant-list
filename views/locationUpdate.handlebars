@@ -1,0 +1,11 @@
+<div class="container center-content">
+    <div class="panel">
+        <form action="/plant/{{name}}/location-update" method="POST">
+            <div class="form-item">
+                <label>Stock Location</label>
+                <input type="text" name="stockLocation" value="{{location}}" />
+            </div>
+            <button type="submit" class="btn-wide"><i class="fas fa-edit"></i> Update</button>
+        </form>
+    </div>
+</div>

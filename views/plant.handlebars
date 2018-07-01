@@ -9,10 +9,6 @@
             <h3>£{{plant.price}} or {{plant.deal}}</h3>
             <table class="item-info">
                 <tr>
-                    <td>Plant Type</td>
-                    <td class="{{plant.form}}">{{plant.type}}</td>
-                </tr>
-                <tr>
                     <td>Form</td>
                     <td>{{plant.form}}</td>
                 </tr>
@@ -25,8 +21,12 @@
                     <td>{{plant.location}}</td>
                 </tr>
             </table>
-            <a href="/plant/{{plant.name}}/edit" class="btn-wide">
-                <i class="fas fa-edit"></i> Edit</a>
+            <a href="/plant/{{plant.name}}/location-update" class="btn-wide btn-link">
+                <i class="fas fa-location-arrow"></i>  Edit location
+            </a>
+            <a href="/plant/{{plant.name}}/stock-update" class="btn-wide btn-link">
+                <i class="fas fa-box-open"></i>  Edit stock level
+            </a>
         </div>
     </div>
 </div>
