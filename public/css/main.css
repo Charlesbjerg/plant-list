@@ -3,6 +3,7 @@
     --bg: #1b2131;
     --bg-light: #272e41;
     --bg-lighter: #2F384F;
+    --bg-very-light: #363F59;
     --accent: #dc3454;
 }
 
@@ -130,20 +131,47 @@ a.active {
     text-align: center;
     width: 100%;
 }
-.search-bar {
-    width: 90%;
-    padding: 0.8em 0.5em;
+.search {
     background-color: transparent;
-    color: #fff;
     border: none;
-    border-bottom: 2px solid var(--accent);
-    margin-bottom: 1em;
+    border-bottom: var(--accent) 2px solid;
+    color: #fff;
+    padding: 0.5em 0.8em;
+    font-size: 1.2em;
+    width: 100%;
+    margin-bottom: 0.5em;
 }
-.btn-search {
+.new-search {
+    background: var(--bg-very-light);
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    padding:  0.5em 0.8em;
+    font-size: 1.2em;
+    width: 100%;
+    margin-bottom: 0.5em;
+}
+.search-bar {
+    background-color: var(--bg-very-light);
+    color: #fff;
+    display: flex;
+    margin-bottom: 1em;
+    padding: 0.8em 0.5em;
+    width: 100%;
+}
+.search-bar input {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    font-size: 1.2em;
+    padding: 0;
+    width: calc(100% - 60px);
+}
+.search-bar button {
     background-color: transparent;
     border: none;
     color: var(--accent);
-    padding: 0.8em 0.5em;
+    padding: 0 0.5em;
 }
 .search-results {
     width: 100%;
@@ -231,7 +259,7 @@ a.active {
     width: 100%;
 }
 .form-item select {
-    background-color: #363F59;    
+    background-color: var(--bg-very-light);    
     border: none;
     border-radius: 3px;
     color: #fff;

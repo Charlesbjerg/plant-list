@@ -1,7 +1,7 @@
 var express = require("express");
 var r = express.Router();
 var db = require("./db");
-
+var upload = require('./imageUpload');
 // Index Route
 r.get("/", function(req, res) {
     res.render("home", { page: 'home' });
@@ -36,7 +36,7 @@ r.get("/all", function(req, res) {
   });
 });
 
-// Plant routes
+// Create Plant routes
 r.get("/plant/create", function(req, res) {
     res.render('create');
 });
@@ -54,12 +54,15 @@ r.post("/plant/create", function(req, res) {
   };
   // send object to database
   db.createOne(plant, function(){
+    // Once document created Handle image upload
+    upload.image(req.files, plant.name);
     // redirect to new plant
     let url = '/plant/' + plant.name;
-    console.log(plant);
     res.redirect(url);
   });
 });
+
+// View plant route
 r.get("/plant/:plant", function(req, res) {
   // Get params
   let plant = req.params.plant;

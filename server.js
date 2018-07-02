@@ -1,9 +1,12 @@
-// Require any dependencies
+// Get dependencies
 var express = require('express');
 var handlebars = require('express-handlebars');
 var routes = require('./src/routes.js');
 var bodyparser = require('body-parser'); 
+var fileUpload = require('express-fileupload');
 
+// Set globals
+global.__basedir = __dirname;
 // init app
 var app = express();
 
@@ -55,6 +58,7 @@ app.engine('handlebars', hbsConfig.engine);
 app.set('view engine', 'handlebars');
 // app.enable('view cache');
 app.use(bodyparser.urlencoded({ extended: true }));
+app.use(fileUpload());
 
 // Serve static files and setup routes
 app.use(express.static('public'));

@@ -1,6 +1,6 @@
 <div class="container center-content scrollable">
     <div class="panel">
-        <form class="" action="/plant/create" method="POST">
+        <form action="/plant/create" method="POST" encType="multipart/form-data">
             <div class="form-item">
                 <label>Plant Name</label>
                 <input type="text" name="name" />
@@ -32,6 +32,10 @@
             <div class="form-item">
                 <label>Stock Location</label>
                 <input type="text" name="location" />
+            </div>
+            <div class="form-item">
+                <label>Image upload</label>
+                <input type="file" name="upload" />
             </div>
             <button type="submit" class="btn-wide">Submit</button>
         </form>
