@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "body-parser": "^1.18.3",
+    "file-exists": "^5.0.1",
     "mongodb": "^3.0.10"
   }
 }

@@ -1,29 +1,29 @@
 <div class="container center-content scrollable">
-    <div class="panel">
+    <div class="panel form-panel">
         <form action="/plant/create" method="POST" encType="multipart/form-data">
             <div class="form-item">
                 <label>Plant Name</label>
-                <input type="text" name="name" />
+                <input type="text" name="name" required />
             </div>
             <div class="form-item">
                 <label>Plant Variant</label>
-                <input type="text" name="variant" />
+                <input type="text" name="variant" required />
             </div>
             <div class="form-item">
                 <label>Price</label>
-                <input type="text" name="price" />
+                <input type="text" name="price" required />
             </div>
             <div class="form-item">
                 <label>Plant Deal</label>
-                <input type="text" name="deal" />
+                <input type="text" name="deal" required />
             </div>
             <div class="form-item">
                 <label>Plant form</label>
-                <input type="text" name="form" />
+                <input type="text" name="form" required />
             </div>
             <div class="form-item">
                 <label>Stock Level</label>
-                <select name="stockLevel">
+                <select name="stockLevel" required>
                     <option value="1">Out of stock</option>
                     <option value="2">Low stock</option>
                     <option value="3">High stock</option>
@@ -31,9 +31,9 @@
             </div>
             <div class="form-item">
                 <label>Stock Location</label>
-                <input type="text" name="location" />
+                <input type="text" name="location" required />
             </div>
-            <div class="form-item">
+            <div class="form-item upload">
                 <label>Image upload</label>
                 <input type="file" name="upload" />
             </div>
