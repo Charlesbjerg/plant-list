@@ -10,11 +10,14 @@
     <link href="https://fonts.googleapis.com/css?family=Lato|Titillium+Web:300" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
     <script src="/js/fontawesome-all.min.js"></script>
-    {{!-- <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
-        crossorigin="anonymous"></script> --}}
 </head>
 <body>
     {{{body}}}
+
+    <!-- page loader -->
+    <div class="loader-overlay" id="loader">
+        <span class="loader"></span>
+    </div>
     <!-- Sticky bottom nav -->
     <nav class="main-nav">
         <ul>
@@ -34,5 +37,6 @@
             });
         }
     </script>
+    <script src="/js/loader.js"></script>
 </body>
 </html>
