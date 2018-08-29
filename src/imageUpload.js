@@ -15,7 +15,7 @@ module.exports = {
                 // Edit file once moved
                 jimp.read(url, function(err, file) {
                     if (err) console.log(err);
-                    file.resize(1026, 1026)
+                    file.cover(1026, 1026)
                         .quality(75)
                         .write(url);
                 });
