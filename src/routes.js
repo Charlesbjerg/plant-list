@@ -49,7 +49,7 @@ r.post("/plant/create", function(req, res) {
     price: data.price,
     deal: data.deal,
     form: data.form,
-    stockLevel: data.level,
+    stockLevel: data.stockLevel,
     location: data.location
   };
   // send object to database
