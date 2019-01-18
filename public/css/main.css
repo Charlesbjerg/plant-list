@@ -286,3 +286,39 @@ a.active {
     font-size: 0.8em;
     margin-top: 0.5em;
 }
+
+/* Page Loader Styles */
+
+.loader-overlay {
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: none;
+    height: 90vh;
+    justify-content: center;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: opacity 0.5s ease;
+    width: 100%;
+    z-index: 100;
+}
+.loader-overlay .loader {
+    animation: spin 1.5s infinite;
+    border-top: 16px solid #D4145A;
+    border-right: 16px solid #FBB03B;
+    border-bottom: 16px solid #D4145A;
+    border-left: 16px solid #FBB03B;
+    border-radius: 50%;
+    height: 120px;
+    width: 120px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

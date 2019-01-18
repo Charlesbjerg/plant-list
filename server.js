@@ -13,7 +13,7 @@ global.__basedir = __dirname;
 var app = express();
 
 // Set port
-let port = process.env.PORT || 3000;
+let port = process.env.PORT || 3002;
 
 // Set handlebars config
 let hbsConfig = handlebars.create(handlebarsConfig);
@@ -41,5 +41,5 @@ app.use(function (error, req, res, next) {
 
 // Start app
 app.listen(port, function() {
-    console.log('Server started on port 3000');
+    console.log(`Server started on port ${port}`);
 });
